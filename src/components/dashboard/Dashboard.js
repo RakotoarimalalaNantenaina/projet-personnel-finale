@@ -51,12 +51,12 @@ class Dashboard extends Component {
     data.append('artiste',this.state.artiste);
     data.append('prix',this.state.prix);
   
-    fetch('http://localhost:8080/atelier', {
+    fetch('https://back-projet-finale-naina.herokuapp.com/atelier', {
       method: 'POST',
       body: data,
     }).then((response) => {
       response.json().then((body) => {
-        this.setState({ photo_produit: `http://localhost:8080/atelier/${body.photo_produit}` });
+        this.setState({ photo_produit: `https://back-projet-finale-naina.herokuapp.com/atelier/${body.photo_produit}` });
         console.log('ajout',body);
       });
     });

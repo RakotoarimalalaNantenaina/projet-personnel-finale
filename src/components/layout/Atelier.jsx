@@ -24,7 +24,7 @@ class Atelier extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/atelier')
+        axios.get('https://back-projet-finale-naina.herokuapp.com/atelier')
             .then(response => {
                 this.setState({ profil: response.data });
             })
@@ -43,7 +43,7 @@ class Atelier extends Component {
                         <div class="item col-md-4" id="carte">
 
                             <div className="card card-cascade narrower card-ecommerce">
-                                <img width="auto" id="imageproduit" height="230px" src={'http://localhost:8080/atelier/' + user.photo_produit} alt={user.photo_produit} />
+                                <img width="auto" id="imageproduit" height="230px" src={'https://back-projet-finale-naina.herokuapp.com/atelier/' + user.photo_produit} alt={user.photo_produit} />
 
                                 <div className="card-body card-body-cascade">
 
@@ -95,7 +95,7 @@ class Atelier extends Component {
 
                                         <a id="ajouterdepanier" href="/login" onClick={()=>{
                                           
-                                            axios.post("http://localhost:8080/panier/" + user._id, {
+                                            axios.post("https://back-projet-finale-naina.herokuapp.com/panier/" + user._id, {
                                                 titre: user.titre,
                                                 id_utilisateur: localStorage.getItem('id_user'),
                                                 description: user.description,

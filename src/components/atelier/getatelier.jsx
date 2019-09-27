@@ -16,7 +16,7 @@ export default class Tableau extends Component {
     }
     componentDidMount() {
        
-        axios.get('http://localhost:8080/atelier')
+        axios.get('https://back-projet-finale-naina.herokuapp.com/atelier')
             .then(response => {
                 this.setState({ profil: response.data });
             })
@@ -59,7 +59,7 @@ export default class Tableau extends Component {
                         {
                             (this.state.profil.length > 0) ? (this.state.profil.map((obj) => {
                                 return <tr key={obj._id}>
-                                    <td><img id="imagetab" width="100px" height="90px" src={'http://localhost:8080/atelier/' + obj.photo_produit} alt={obj.photo_produit} /></td>
+                                    <td><img id="imagetab" width="100px" height="90px" src={'https://back-projet-finale-naina.herokuapp.com/atelier/' + obj.photo_produit} alt={obj.photo_produit} /></td>
                                     <td>{obj.titre}</td>
                                     <td>{obj.artiste}</td>
                                     <td>{obj.description}</td>
@@ -102,7 +102,7 @@ export default class Tableau extends Component {
                                                 <MDBModalFooter className="justify-content-center">
                                                     <MDBBtn color="danger" onClick={this.toggle(6)} onClick={(e)=>{
                                                             e.preventDefault()
-                                                            axios.get("http://localhost:8080/supprimer/"+obj._id)
+                                                            axios.get("https://back-projet-finale-naina.herokuapp.com/supprimer/"+obj._id)
                                                             .then()
                                                             .catch(err => console.log(err))
                                                             document.getElementById('divsupprimer').style.display = "none"
@@ -133,8 +133,8 @@ export default class Tableau extends Component {
 
                                         {obj.valid == true ? (<button id="bottondesactivez" className="btn btn-primary" onClick={(e) => {
                                             e.preventDefault()
-                                            axios.get("http://localhost:8080/masqueratelier/" + obj._id).then(res => {
-                                                axios.get('http://localhost:8080/atelier')
+                                            axios.get("https://back-projet-finale-naina.herokuapp.com/masqueratelier/" + obj._id).then(res => {
+                                                axios.get('https://back-projet-finale-naina.herokuapp.com/atelier')
                                                     .then(response => {
                                                         this.setState({ profil: response.data });
                                                     })
@@ -144,8 +144,8 @@ export default class Tableau extends Component {
                                             })
                                         }}>Masquer</button>) : (<button id="visual" onClick={(e) => {
                                             e.preventDefault()
-                                            axios.get("http://localhost:8080/afficheatelier/" + obj._id).then(res => {
-                                                axios.get('http://localhost:8080/atelier')
+                                            axios.get("https://back-projet-finale-naina.herokuapp.com/afficheatelier/" + obj._id).then(res => {
+                                                axios.get('https://back-projet-finale-naina.herokuapp.com/atelier')
                                                     .then(response => {
                                                         this.setState({ profil: response.data });
                                                     })
