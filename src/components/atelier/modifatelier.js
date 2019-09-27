@@ -26,7 +26,7 @@ class Modifatelier extends React.Component {
 }
 
 componentDidMount() {
-  axios.get('http://localhost:8080/'+this.props.match.params.id)
+  axios.get('https://back-projet-finale-naina.herokuapp.com/'+this.props.match.params.id)
       .then(response => {
             // console.log("donné à modifier" , response.data)
           this.setState({
@@ -57,13 +57,13 @@ handleUploadImage(ev) {
     data.append('genre',this.state.genre);
     data.append('prix',this.state.prix);
 
-  fetch('http://localhost:8080/atelier/'+ this.props.match.params.id, {
+  fetch('https://back-projet-finale-naina.herokuapp.com/atelier/'+ this.props.match.params.id, {
     method: 'PUT',
     body: data,
   }).then((response) => {
       
     response.json().then((body) => {
-      this.setState({ image: `http://localhost:8080/atelier/${body.photo_produit}` });
+      this.setState({ image: `https://back-projet-finale-naina.herokuapp.com/atelier/${body.photo_produit}` });
     });
   });
 }

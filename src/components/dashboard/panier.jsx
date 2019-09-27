@@ -39,7 +39,7 @@ toggle = nr => () => {
 
   componentDidMount() {
     var test = []
-    axios.get('http://localhost:8080/panier')
+    axios.get('https://back-projet-finale-naina.herokuapp.com/panier')
         .then(response => {
           for(let i=0; i<response.data.length; i++){
             if(response.data[i].id_utilisateur==localStorage.getItem('id_user')){
@@ -83,7 +83,7 @@ toggle = nr => () => {
                         {
                             (this.state.profil.length > 0) ? (this.state.profil.map((obj) => {
                                 return <tr key={obj._id}>
-                                    <td><img id="imagetab" width="100px" height="90px" src={'http://localhost:8080/atelier/' + obj.photo_produit} alt={obj.photo_produit} /></td> 
+                                    <td><img id="imagetab" width="100px" height="90px" src={'https://back-projet-finale-naina.herokuapp.com/atelier/' + obj.photo_produit} alt={obj.photo_produit} /></td> 
                                     <td>{obj.artiste}</td>
                                     <td>{obj.titre}</td>
                                     <td>{obj.genre}</td>
@@ -116,7 +116,7 @@ toggle = nr => () => {
                                                 <MDBModalFooter className="justify-content-center">
                                                     <MDBBtn color="danger"  onClick={(e)=>{
                                                             e.preventDefault()
-                                                            axios.get("http://localhost:8080/supprimerpanier/"+obj._id)
+                                                            axios.get("https://back-projet-finale-naina.herokuapp.com/supprimerpanier/"+obj._id)
                                                             .then()
                                                             .catch(err => console.log(err))
                                                             document.getElementById('divsupprimer').style.display = "none"

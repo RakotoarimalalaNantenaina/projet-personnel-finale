@@ -26,7 +26,7 @@ class Login extends Component {
         this.setState({ [e.target.name]: e.target.value });
       };
     componentDidMount() {
-        axios.get('http://localhost:8080/administration')
+        axios.get('https://back-projet-finale-naina.herokuapp.com/administration')
             .then(response => {
                 
                 localStorage.setItem('username', response.data[0].username);
