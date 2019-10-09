@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { MDBRow, MDBCol, MDBInput, MDBBtn} from "mdbreact";
-import axios from 'axios';
+// import axios from 'axios';
 
 
 class Login extends Component {
@@ -10,11 +10,13 @@ class Login extends Component {
             username: "",
             password: "",
             profil: [] ,
+            nom: "Nantenaina",
+            passe: "nainah@343"
         }  
     }
       onSubmit = () => {  
 
-        if (this.state.username==localStorage.getItem('username')  && this.state.password==localStorage.getItem('password')) {
+        if (this.state.username==this.state.nom && this.state.password==this.state.passe) {
             this.props.history.push(`/admin_album`)
         }
         else{
@@ -25,21 +27,21 @@ class Login extends Component {
     onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
       };
-    componentDidMount() {
-        axios.get('https://back-projet-finale-naina.herokuapp.com/administration')
-            .then(response => {
+    // componentDidMount() {
+    //     axios.get('https://back-projet-finale-naina.herokuapp.com/administration')
+    //         .then(response => {
                 
-                localStorage.setItem('username', response.data[0].username);
-                localStorage.setItem('password', response.data[0].password);
+    //             localStorage.setItem('username', response.data[0].username);
+    //             localStorage.setItem('password', response.data[0].password);
 
-                localStorage.getItem('username', true);
+    //             localStorage.getItem('username', true);
 
-                this.setState({ profil: response.data });
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    }
+    //             this.setState({ profil: response.data });
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         })
+    // }
   render() {
     return (
             <div className="container-fluid">
@@ -57,7 +59,7 @@ class Login extends Component {
               <div className="grey-text">
                 <MDBInput
                   label="Nom d'utilisateur"
-                  icon="envelope"
+                  icon="user"
                   group
                   type="text"
                   success="right"
