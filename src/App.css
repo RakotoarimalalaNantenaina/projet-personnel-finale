@@ -177,8 +177,7 @@ td {
     font-weight: bold;
 }
 #loginrow {
-    margin-top: 200px;
-    transition: transform .2s; 
+    margin-top: 80px;
     border-style: groove;
     border-width: 2px;
     padding-top: 50px;
@@ -186,11 +185,15 @@ td {
     padding-left: 50px;
     padding-bottom: 50px;
     border-radius: 10px;
+    background-image: radial-gradient(circle, rgb(199, 182, 182), rgb(223, 146, 206), rgb(236, 193, 213));  
 }
-#loginrow:hover {
-    -ms-transform: scale(1.1); 
-    -webkit-transform: scale(1.1); 
-    transform: scale(1.1); 
+  #Registerrow {
+    margin-top: 20px;
+    border-style: groove;
+    border-width: 2px;
+    padding: 30px 30px 30px 30px;
+    border-radius: 10px;
+    background-image: radial-gradient(circle, rgb(199, 182, 182), rgb(223, 146, 206), rgb(236, 193, 213));  
   }
 #loginp {
     color: #d05c62;

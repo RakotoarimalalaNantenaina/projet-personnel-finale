@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
-import classnames from "classnames";
 import { MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 
 class Register extends Component {
@@ -61,7 +60,7 @@ class Register extends Component {
 
         <div className="row">
           <div className="col-md-4"></div>
-          <div className="col-md-4" id="loginrow">
+          <div className="col-md-4" id="Registerrow">
             <MDBRow>
               <MDBCol md="12">
                 <form noValidate onSubmit={this.onSubmit}>
@@ -69,31 +68,30 @@ class Register extends Component {
                   <div className="grey-text">
                     <MDBInput
                       label="Votre nom"
-                      icon="envelope"
+                      icon="user"
                       group
                       onChange={this.onChange}
                       value={this.state.name}
                       id="name"
                       type="text"
-                      className={classnames("", {
-                        invalid: errors.name
-                      })}
-                      required
                     />
+
+                  <span className="red-text">
+                    {errors.name}
+                    </span>
 
                     <MDBInput
                       label="Votre prenom"
-                      icon="envelope"
+                      icon="user"
                       group
                       onChange={this.onChange}
                       value={this.state.lastname}
                       id="lastname"
                       type="text"
-                      className={classnames("", {
-                        invalid: errors.lastname
-                      })}
-                      required
                     />
+                     <span className="red-text">
+                    {errors.name}
+                    </span>
 
 
                     <MDBInput
@@ -105,13 +103,11 @@ class Register extends Component {
                       id="email"
                       onChange={this.onChange}
                       value={this.state.email}
-
-                      className={classnames("", {
-                        invalid: errors.email
-                      })}
-                      required
                     />
-
+                   <span className="red-text">
+                    {errors.email}
+                    {errors.emailnotfound}
+                    </span>
 
                     <MDBInput
                       label="Votre mot de passe"
@@ -120,13 +116,11 @@ class Register extends Component {
                       type="password"
                       onChange={this.onChange}
                       value={this.state.password}
-
                       id="password"
-                      className={classnames("", {
-                        invalid: errors.password
-                      })}
-                      required
                     />
+                    <span className="red-text">
+                     {errors.password}
+                     </span>
                     <MDBInput
                       label="Confirmer votre mot de passe"
                       icon="lock"
@@ -134,14 +128,11 @@ class Register extends Component {
                       type="password"
                       onChange={this.onChange}
                       value={this.state.password2}
-
                       id="password2"
-                      className={classnames("", {
-                        invalid: errors.password2
-                      })}
-                      required
                     />
-
+                    <span className="red-text">
+                   {errors.password2}
+                   </span>
                   </div>
                   <div className="text-center">
                     <MDBBtn type="submit" className="btn btn-primary" id="inscrire-btn">S'inscrire</MDBBtn>
